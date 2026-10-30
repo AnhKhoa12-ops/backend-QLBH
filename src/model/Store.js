@@ -21,9 +21,13 @@ const storeSchema = new mongoose.Schema({
     },
     status: {
         type: String,
+<<<<<<< HEAD
         enum: ['close', 'open'],
         maxlength: 30,
         default: 'close'
+=======
+        maxlength: 30
+>>>>>>> 505c4fde414440cdf214fecc0eb728879c73e271
     }
 });
 

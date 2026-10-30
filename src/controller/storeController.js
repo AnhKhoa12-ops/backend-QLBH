@@ -51,6 +51,7 @@ export const createStore = async (req, res) => {
         }
         res.json({message: 'Server error'})
     }
+<<<<<<< HEAD
 }
 
 export const updateStore = async (req, res) => {
@@ -117,4 +118,6 @@ export const searchStore = async (req, res) => {
         console.error('Loi khi goi searchStore', error)
         res.json({message: 'Server Error'})
     }
+=======
+>>>>>>> 505c4fde414440cdf214fecc0eb728879c73e271
 }

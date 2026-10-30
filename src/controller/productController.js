@@ -109,6 +109,7 @@ export const deleteProduct = async (req, res) => {
         console.error("Loi khi goi deleteProduct:", error);
         res.status(500).json({ message: "Server error" });
     }
+<<<<<<< HEAD
 };
 
 export const searchProduct = async (req, res) => {
@@ -172,3 +173,6 @@ export const getProductsBySupplier = async (req, res) => {
         res.json({message: 'Server Error'})
     }
 }
+=======
+};
+>>>>>>> 505c4fde414440cdf214fecc0eb728879c73e271
