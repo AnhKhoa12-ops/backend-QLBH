@@ -2,7 +2,7 @@ import express from 'express'
 
 import { createStore, deleteStore, getAllStore, getOneStore, searchStore, updateStore, updateStoreStatus } from '../controller/storeController.js';
 
-import { createStore, getAllStore, getOneStore } from '../controller/storeController.js';
+
 
 
 const storeRouter = express.Router()

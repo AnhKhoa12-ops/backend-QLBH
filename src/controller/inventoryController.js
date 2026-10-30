@@ -33,7 +33,7 @@ export const getInventoryByStore = async (req, res) => {
 
 export const getInventoryByProduct = async (req, res) => {
      try {
-        const inven = await Inventory.findOne({product_id_id: req.params.product_id})
+        const inven = await Inventory.findOne({product_id: req.params.product_id})
         res.json(inven)
     } catch (error) {
         console.error('Loi khi goi getInventoryByProduct', error)
@@ -43,11 +43,11 @@ export const getInventoryByProduct = async (req, res) => {
 
 export const getLowStockProducts = async (req, res) => {
     try {
-        const inven = await Inventory.find({
+        const inventory = await Inventory.find({
             $expr: { $lt: ["$quantity", "$min_quantity"] }
         });
 
-        res.json(inven)
+        res.json(inventory)
     } catch (error) {
         return res.status(500).json({
             message: 'Server Error'
@@ -60,17 +60,17 @@ export const createInventory = async (req, res) => {
     try {
         counter = await Counter.findOneAndUpdate(
             {_id: 'req.params.inventory_id'},
-            {$ind: {seq: 1}},
+            {$inc: {seq: 1}},
             {new: true, upsert: true}
         )
 
-        const inven = new Inventory({
+        const inventory = new Inventory({
             ...req.body,
             inventory_id: counter.seq
         }
         )
-        const newInven = await inven.save()
-        res.json(newInven)
+        const newInventory = await inventory.save()
+        res.json(newInventory)
     } catch (error) {
         console.error('Loi khi goi createInventory', error)
         if(counter) {

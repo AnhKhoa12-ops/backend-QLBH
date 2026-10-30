@@ -43,7 +43,7 @@ const inventorySchema = new mongoose.Schema({
     },
     updated_at: {
         type: Date,
-        required: true
+        
     }
 });
 
